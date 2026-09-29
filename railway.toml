@@ -1,0 +1,9 @@
+[build]
+builder = "NIXPACKS"
+buildCommand = "mvn -DskipTests package"
+
+[deploy]
+startCommand = "java -XX:MaxRAMPercentage=75.0 -jar target/bankease-monolith-1.0.0.jar"
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ALWAYS"
