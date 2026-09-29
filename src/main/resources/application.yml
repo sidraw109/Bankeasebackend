@@ -1,0 +1,39 @@
+spring:
+  application:
+    name: bankease-net-banking
+  
+  datasource:
+    url: jdbc:mysql://localhost:3306/bankease?createDatabaseIfNotExist=true&useSSL=false&serverTimezone=UTC
+    username: root
+    password: 8439563366
+    driver-class-name: com.mysql.cj.jdbc.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.MySQLDialect
+
+#  data:
+#    mongodb:
+#      uri: mongodb://localhost:27017/bankease
+
+bankease:
+  jwt:
+    # A base64 encoded secure 256-bit key for JWT signing.
+    secret: VmVyeVNlY3VyZVNlY3JldEtleUZvckJhbmtFYXNlQXBwbGljYXRpb25KV1QxMjM=
+    expiration-ms: 86400000 # 24 hours
+    refresh-expiration-ms: 604800000 # 7 days
+
+server:
+  port: 8080
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html
+    operationsSorter: method
